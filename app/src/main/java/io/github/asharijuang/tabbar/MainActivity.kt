@@ -7,26 +7,36 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    val fragmentManager = supportFragmentManager
+    val fragmentTransaction = fragmentManager.beginTransaction()
+
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+
         when (item.itemId) {
             R.id.navigation_contact -> {
-                message.setText(R.string.title_contact)
+                fragmentTransaction.add(R.id.frameLayout, TimelineFragment())
+                fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_chat -> {
-                message.setText(R.string.title_chat)
+                fragmentTransaction.add(R.id.frameLayout, TimelineFragment())
+                fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_official -> {
-                message.setText(R.string.title_official)
+                fragmentTransaction.add(R.id.frameLayout, TimelineFragment())
+                fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_timeline -> {
-                message.setText(R.string.title_timeline)
+                fragmentTransaction.add(R.id.frameLayout, TimelineFragment())
+                fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
-                message.setText(R.string.title_settings)
+                fragmentTransaction.add(R.id.frameLayout, SettingFragment())
+                fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
         }
